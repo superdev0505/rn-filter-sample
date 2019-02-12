@@ -20,7 +20,7 @@ export default class UserItem extends PureComponent<Props> {
   render() {
     const {
       item: {
-        firstName, lastName, gender, lastLogin, skill
+        firstName, lastName, gender, lastLogin, skill,
       },
     } = this.props
 
@@ -35,13 +35,13 @@ export default class UserItem extends PureComponent<Props> {
             {firstName} {lastName}
           </Text>
           <Text style={styles.metaData} numberOfLines={1}>
-            {gender}
+            Gender: {gender}
           </Text>
           <Text style={styles.metaData} numberOfLines={1}>
-            {skill}
+            Skill: {skill}
           </Text>
           <Text style={styles.metaData}>
-            last login: {timeAgo.ago(lastLogin)}
+            Last Login: {timeAgo.ago(lastLogin)}
           </Text>
         </View>
 

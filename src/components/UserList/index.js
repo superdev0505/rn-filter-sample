@@ -9,7 +9,6 @@ import { getFilteredUsers } from 'core'
 
 import FilterGenderPicker from 'components/FilterGenderPicker'
 import FilterSkillPicker from 'components/FilterSkillPicker'
-import ActionButton from 'components/ActionButton'
 import UserItem, { ITEM_HEIGHT } from 'components/UserItem'
 
 import Header from './Header'
@@ -122,8 +121,6 @@ export default class UserList extends PureComponent<{}, State> {
             renderItem={this.renderItem}
           />
         </View>
-
-        <ActionButton />
       </View>
     )
   }
