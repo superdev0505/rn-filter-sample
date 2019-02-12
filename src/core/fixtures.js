@@ -2,8 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const faker = require('faker')
 
-
-
 const generateUsers = count =>
   Array.from({ length: count }).map((item, index) => ({
     key: String(index),
@@ -11,8 +9,8 @@ const generateUsers = count =>
     lastLogin: faker.date.past(1),
     lastName: faker.name.lastName(),
     firstName: faker.name.firstName(),
-    gedner: faker.random.arrayElement(['w', 'm']),
-    skill: faker.random.arrayElement(['low', 'medium', 'high'])
+    gender: faker.random.arrayElement(['Female', 'Male']),
+    skill: faker.random.arrayElement(['low', 'medium', 'high']),
   }))
 
 const data = generateUsers(300)

@@ -36,7 +36,12 @@ export default class UserList extends PureComponent<{}, State> {
     this.getUsers()
   }
 
-  async getUsers(filterGender?: string, filterSkill?: string, index?: number, data?: Array<USER>) {
+  async getUsers(
+    filterGender?: string,
+    filterSkill?: string,
+    index?: number,
+    data?: Array<USER>
+  ) {
     const users = await getFilteredUsers(filterGender, filterSkill, index)
 
     this.setState({ data: (data || []).concat(users) })
@@ -60,8 +65,12 @@ export default class UserList extends PureComponent<{}, State> {
   onResetGender = () => this.onGenderSearch('');
   onResetGender = () => this.onSkillSearch('');
 
-  onGenderSearchDebounced = debounce(this.onGenderSearch, 250, { trailing: true });
-  onSkillSearchDebounced = debounce(this.onSkillSearch, 250, { trailing: true });
+  onGenderSearchDebounced = debounce(this.onGenderSearch, 250, {
+    trailing: true,
+  });
+  onSkillSearchDebounced = debounce(this.onSkillSearch, 250, {
+    trailing: true,
+  });
 
   onEndReached = () => {
     const { data } = this.state
@@ -70,7 +79,12 @@ export default class UserList extends PureComponent<{}, State> {
       return
     }
 
-    this.getUsers(this.state.filterGender, this.state.filterSkill, data.length, data)
+    this.getUsers(
+      this.state.filterGender,
+      this.state.filterSkill,
+      data.length,
+      data
+    )
   };
 
   renderSeparator = () => <Separator style={styles.itemSeparator} />;
@@ -85,14 +99,17 @@ export default class UserList extends PureComponent<{}, State> {
         <Header />
 
         <View style={styles.userList}>
-          <FilterGenderPicker
-            onReset={this.onResetGender}
-            onChangeText={this.onGenderSearchDebounced}
-          />
-          <FilterSkillPicker
-            onReset={this.onResetSkill}
-            onChangeText={this.onSkillSearchDebounced}
-          />
+          <View style={styles.searchContainer}>
+            <FilterGenderPicker
+              onReset={this.onResetGender}
+              onChangeText={this.onGenderSearchDebounced}
+            />
+            <FilterSkillPicker
+              onReset={this.onResetSkill}
+              onChangeText={this.onSkillSearchDebounced}
+            />
+          </View>
+
           <AnimatedFlatList
             data={data}
             getItemLayout={this.getItemLayout}

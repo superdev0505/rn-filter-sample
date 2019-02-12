@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { View, Picker, PickerItem } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
 
 import styles from './styles'
 
@@ -18,7 +17,7 @@ export default class FilterSkillPicker extends PureComponent<Props, State> {
     filterSkill: '',
   };
 
-  onChange = (filterSkill, itemIndex) => {
+  onChange = filterSkill => {
     this.setState({ filterSkill })
     this.props.onChangeText(filterSkill)
   };
@@ -31,8 +30,6 @@ export default class FilterSkillPicker extends PureComponent<Props, State> {
   render() {
     return (
       <View style={styles.filterContainer}>
-        <MaterialIcons name="search" size={24} style={styles.searchIcon} />
-
         <Picker
           selectedValue={this.state.filterSkill}
           onValueChange={this.onChange}
@@ -40,8 +37,8 @@ export default class FilterSkillPicker extends PureComponent<Props, State> {
         >
           <PickerItem label="Skill" value="" />
           <PickerItem label="Low" value="low" />
-          <PickerItem label="Medium" value = "medium" />
-          <PickerItem label="High" value = "high" />
+          <PickerItem label="Medium" value="medium" />
+          <PickerItem label="High" value="high" />
         </Picker>
       </View>
     )

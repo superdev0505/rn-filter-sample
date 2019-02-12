@@ -10,6 +10,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#e0e0e0',
     backgroundColor: 'white',
+    width: '50%',
   },
   searchIcon: {
     top: 16,
@@ -17,7 +18,6 @@ export default StyleSheet.create({
     marginLeft: 30,
   },
   filterInput: {
-    paddingLeft: 74,
     marginVertical: Platform.select({ ios: 8, android: 0 }),
     marginRight: 24,
     fontSize: 16,

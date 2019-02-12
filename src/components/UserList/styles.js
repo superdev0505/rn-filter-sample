@@ -27,6 +27,10 @@ export default StyleSheet.create({
     backgroundColor: '#f5f5f5',
     elevation: 2,
   },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   headerTitle: {
     fontSize: 20,
     paddingHorizontal: 8,

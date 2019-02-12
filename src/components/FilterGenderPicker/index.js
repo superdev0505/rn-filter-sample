@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { View, Picker, PickerItem } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
 
 import styles from './styles'
 
@@ -18,7 +17,7 @@ export default class FilterGenderPicker extends PureComponent<Props, State> {
     filterGender: '',
   };
 
-  onChange = (filterGender, itemIndex) => {
+  onChange = filterGender => {
     this.setState({ filterGender })
     this.props.onChangeText(filterGender)
   };
@@ -31,16 +30,14 @@ export default class FilterGenderPicker extends PureComponent<Props, State> {
   render() {
     return (
       <View style={styles.filterContainer}>
-        <MaterialIcons name="search" size={24} style={styles.searchIcon} />
-
         <Picker
           selectedValue={this.state.filterGender}
           onValueChange={this.onChange}
           style={styles.filterInput}
         >
           <PickerItem label="Gender" value="" />
-          <PickerItem label="Man" value="m" />
-          <PickerItem label="Woman" value = "w" />
+          <PickerItem label="Male" value="Male" />
+          <PickerItem label="Female" value="Female" />
         </Picker>
       </View>
     )
