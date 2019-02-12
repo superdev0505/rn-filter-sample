@@ -1,0 +1,62 @@
+{
+  "name": "user-search-native",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "prettier": "npx prettier --write src/**/*.js *.js",
+    "lint": "npx eslint --fix --ext js .",
+    "format": "yarn prettier && yarn format",
+    "fixtures": "node ./src/core/fixtures.js",
+    "precommit": "lint-staged"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react-native": "^3.2.0",
+    "flow-bin": "^0.60.1",
+    "husky": "^0.14.3",
+    "jest-expo": "23.0.0",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.8.2",
+    "prettier-eslint": "^8.2.2",
+    "react-native-scripts": "1.8.0",
+    "react-test-renderer": "16.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^3.0.0",
+    "expo": "^23.0.4",
+    "faker": "^4.1.0",
+    "lodash.debounce": "^4.0.8",
+    "react": "16.0.0",
+    "react-native": "0.50.3",
+    "react-native-atoz-listview": "^0.0.7",
+    "react-native-dismiss-keyboard": "^1.0.0",
+    "react-native-material-design-searchbar": "^1.1.7",
+    "react-native-material-ripple": "^0.7.5",
+    "react-native-search-box": "^0.0.13",
+    "time-ago": "^0.2.1"
+  }
+}
